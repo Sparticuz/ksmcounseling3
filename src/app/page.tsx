@@ -109,11 +109,11 @@ export default function Homepage() {
               alt="Firefly Play Therapy Logo"
               className="h-full w-[200px]"
               src={
-                "/img/logos/logo_clear_bg.svg"
+                "img/logos/logo_clear_bg.svg"
                 /*
                 isScrolled
-                  ? "/img/logos/firefly.print.color.svg"
-                  : "/img/logos/logo_clear_bg.svg"
+                  ? "img/logos/firefly.print.color.svg"
+                  : "img/logos/logo_clear_bg.svg"
                   */
               }
             />
@@ -205,7 +205,7 @@ export default function Homepage() {
       <main className="-mt-48">
         {/* Hero Section */}
 
-        <section className="bg-[url(/img/guilherme-stecanella-smCn7Cbhk_c-unsplash.jpg)] bg-cover bg-center bg-no-repeat py-64">
+        <section className="bg-[url(img/guilherme-stecanella-smCn7Cbhk_c-unsplash.jpg)] bg-cover bg-center bg-no-repeat py-64">
           <div className="container mx-auto text-center">
             <blockquote className="mb-6 font-serif text-4xl font-bold italic text-shadow-black text-shadow-sm">
               “Toys are a child’s words and play is their language”
@@ -268,7 +268,7 @@ export default function Homepage() {
                 <img
                   alt="Krisytn McNally"
                   className="mx-auto mb-4 h-48 w-48 rounded-full object-cover"
-                  src="/img/team/McNally-Resized.jpg"
+                  src="img/team/McNally-Resized.jpg"
                 />
                 <p className="text-gray-600 italic">
                   &quot;Every child deserves to be heard, understood, and
