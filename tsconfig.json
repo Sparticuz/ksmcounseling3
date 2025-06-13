@@ -1,0 +1,36 @@
+{
+  "extends": [
+    "@tsconfig/next/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ],
+  "compilerOptions": {
+    /* Base Options: */
+    "target": "ES2022",
+    "moduleDetection": "force",
+
+    /* Strictness */
+    "exactOptionalPropertyTypes": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "verbatimModuleSyntax": true,
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "eslint.config.js",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.js",
+    ".next/types/**/*.ts",
+    "vitest.setup.ts"
+  ],
+  "exclude": ["node_modules"]
+}

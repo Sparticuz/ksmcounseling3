@@ -1,0 +1,22 @@
+@import "@fontsource/inter";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Use .dark mode class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+
+  --color-persimmon-50: #fff3f1;
+  --color-persimmon-100: #ffe6e1;
+  --color-persimmon-200: #ffd1c7;
+  --color-persimmon-300: #ffb1a0;
+  --color-persimmon-400: #ff7a5e;
+  --color-persimmon-500: #f85c3b;
+  --color-persimmon-600: #e5401d;
+  --color-persimmon-700: #c13214;
+  --color-persimmon-800: #a02c14;
+  --color-persimmon-900: #842b18;
+  --color-persimmon-950: #481207;
+}
