@@ -1,8 +1,5 @@
-// @ts-expect-error There are no types
 import nextPlugin from "@next/eslint-plugin-next";
-// @ts-expect-error There are no types
 import myConfig from "@sparticuz/eslint-config";
-// @ts-expect-error There are no types
 import importPlugin from "eslint-plugin-import";
 import reactPlugin from "eslint-plugin-react";
 import reactCompilerPlugin from "eslint-plugin-react-compiler";
@@ -38,8 +35,8 @@ export default tseslint.config(
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat["jsx-runtime"],
   // ...tailwind.configs["flat/recommended"],
-  nextPlugin.flatConfig.recommended,
-  nextPlugin.flatConfig.coreWebVitals,
+  nextPlugin.configs.recommended,
+  nextPlugin.configs["core-web-vitals"],
   hooksPlugin.configs["recommended-latest"],
   reactCompilerPlugin.configs.recommended,
   {
