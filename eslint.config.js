@@ -4,10 +4,10 @@ import importPlugin from "eslint-plugin-import";
 import reactPlugin from "eslint-plugin-react";
 import reactCompilerPlugin from "eslint-plugin-react-compiler";
 import hooksPlugin from "eslint-plugin-react-hooks";
-// import tailwind from "eslint-plugin-tailwindcss";
-import tseslint from "typescript-eslint";
+import tailwindPlugin from "eslint-plugin-better-tailwindcss";
+import { defineConfig } from "eslint/config";
 
-export default tseslint.config(
+export default defineConfig(
   {
     name: "Ignore Next folder",
 
@@ -31,16 +31,40 @@ export default tseslint.config(
       },
     },
   },
-  // @ts-expect-error The types are busted
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat["jsx-runtime"],
-  // ...tailwind.configs["flat/recommended"],
-  // @ts-expect-error The types are busted
-  nextPlugin.flatConfig.recommended,
-  // @ts-expect-error The types are busted
-  nextPlugin.flatConfig.coreWebVitals,
+  nextPlugin.configs.recommended,
+  nextPlugin.configs["core-web-vitals"],
   hooksPlugin.configs["recommended-latest"],
   reactCompilerPlugin.configs.recommended,
+  {
+    files: ["**/*.{jsx,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    plugins: {
+      "better-tailwindcss": tailwindPlugin,
+    },
+    rules: {
+      // enable all recommended rules to report a warning
+      ...tailwindPlugin.configs["recommended"].rules,
+      "better-tailwindcss/enforce-consistent-line-wrapping": [
+        "warn",
+        {
+          preferSingleLine: true,
+        },
+      ],
+    },
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "./src/styles/globals.css",
+      },
+    },
+  },
   {
     name: "My Local Options",
     rules: {
