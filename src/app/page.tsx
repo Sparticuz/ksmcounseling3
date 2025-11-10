@@ -5,6 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 
 import { AboutMe } from "@/components/about-me";
 import { AboutPlayTherapy } from "@/components/about-play-therapy";
+import { Contact } from "@/components/contact";
+import { Parents } from "@/components/parents";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -13,8 +15,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { Parents } from "@/components/parents";
-import { Contact } from "@/components/contact";
 
 const NAV_ITEMS = [
   { id: "about", label: "About Me" },
@@ -40,7 +40,7 @@ export default function Homepage() {
 
     const handleScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(() => {
+        globalThis.requestAnimationFrame(() => {
           const shouldBeScrolled = window.scrollY > 50;
           setIsScrolled(shouldBeScrolled);
           ticking = false;
@@ -58,17 +58,31 @@ export default function Homepage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-rose-50 to-orange-50 text-white">
+    <div
+      className={`
+        min-h-screen bg-gradient-to-b from-rose-50 to-orange-50 text-white
+      `}
+    >
       {/* Navigation */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+          `
+            fixed top-0 right-0 left-0 z-50 transition-all duration-300
+            ease-in-out
+          `,
           isScrolled
-            ? "bg-persimmon-400 supports-[backdrop-filter]:bg-persimmon-400/60 h-24 backdrop-blur" // Pinned state: with background, blur
+            ? `
+              h-24 bg-persimmon-400 backdrop-blur
+              supports-[backdrop-filter]:bg-persimmon-400/60
+            ` // Pinned state: with background, blur
             : "h-48 border-transparent bg-transparent", // Floating state: transparent background
         )}
       >
-        <div className="container mx-auto flex h-full items-center justify-between px-4">
+        <div
+          className={`
+            container mx-auto flex h-full items-center justify-between px-4
+          `}
+        >
           <div className="flex items-center space-x-2">
             <img
               alt="Firefly Play Therapy Logo"
@@ -81,8 +95,11 @@ export default function Homepage() {
           <nav className="hidden items-center space-x-8 md:flex">
             {NAV_ITEMS.map((item) => (
               <button
+                className={`
+                  font-inter uppercase transition-colors
+                  hover:text-persimmon-200
+                `}
                 key={item.id}
-                className="font-inter hover:text-persimmon-200 uppercase transition-colors"
                 onClick={() => {
                   scrollToSection(item.id);
                 }}
@@ -103,13 +120,21 @@ export default function Homepage() {
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
             <SheetContent
-              className="w-[85vw] max-w-sm bg-gradient-to-br from-persimmon-50 to-orange-50"
+              className={`
+                w-[85vw] max-w-sm bg-gradient-to-br from-persimmon-50
+                to-orange-50
+              `}
               side="right"
             >
               <div className="flex h-full flex-col">
                 {/* Logo/Header */}
-                <div className="mb-8 mt-8 border-b border-persimmon-200 pb-6">
-                  <div className="mx-auto w-fit rounded-lg bg-persimmon-400 px-4 py-3 shadow-md">
+                <div className="mt-8 mb-8 border-b border-persimmon-200 pb-6">
+                  <div
+                    className={`
+                      mx-auto w-fit rounded-lg bg-persimmon-400 px-4 py-3
+                      shadow-md
+                    `}
+                  >
                     <img
                       alt="Firefly Play Therapy Logo"
                       className="h-16 w-auto"
@@ -122,8 +147,13 @@ export default function Homepage() {
                 <nav className="flex flex-col space-y-2">
                   {NAV_ITEMS.map((item) => (
                     <button
+                      className={`
+                        group rounded-lg px-6 py-4 text-left text-xl
+                        font-semibold text-gray-800 transition-all
+                        hover:bg-persimmon-100 hover:pl-8
+                        hover:text-persimmon-700
+                      `}
                       key={item.id}
-                      className="group rounded-lg px-6 py-4 text-left text-xl font-semibold text-gray-800 transition-all hover:bg-persimmon-100 hover:pl-8 hover:text-persimmon-700"
                       onClick={() => {
                         scrollToSection(item.id);
                       }}
@@ -135,9 +165,17 @@ export default function Homepage() {
                 </nav>
 
                 {/* Footer CTA */}
-                <div className="mt-auto border-t border-persimmon-200 px-6 pb-8 pt-8">
+                <div
+                  className={`
+                    mt-auto border-t border-persimmon-200 px-6 pt-8 pb-8
+                  `}
+                >
                   <Button
-                    className="w-full bg-persimmon-400 py-6 text-lg font-semibold text-white shadow-lg hover:bg-persimmon-500"
+                    className={`
+                      w-full bg-persimmon-400 py-6 text-lg font-semibold
+                      text-white shadow-lg
+                      hover:bg-persimmon-500
+                    `}
                     onClick={() => {
                       scrollToSection("contact");
                     }}
@@ -162,14 +200,27 @@ export default function Homepage() {
           }}
         >
           <div className="container mx-auto text-center">
-            <blockquote className="mb-6 font-serif text-4xl font-bold italic text-shadow-black text-shadow-sm">
+            <blockquote
+              className={`
+                mb-6 font-serif text-4xl font-bold italic text-shadow-black
+                text-shadow-sm
+              `}
+            >
               “Toys are a child&apos;s words and play is their language”
             </blockquote>
-            <p className="mx-auto mb-8 max-w-2xl font-serif text-xl italic text-shadow-black text-shadow-sm">
+            <p
+              className={`
+                mx-auto mb-8 max-w-2xl font-serif text-xl italic
+                text-shadow-black text-shadow-sm
+              `}
+            >
               Dr. Garry Landreth
             </p>
             <Button
-              className="bg-persimmon-400 hover:bg-persimmon-500 px-8 py-3 text-lg text-white"
+              className={`
+                bg-persimmon-400 px-8 py-3 text-lg text-white
+                hover:bg-persimmon-500
+              `}
               onClick={() => {
                 scrollToSection("contact");
               }}

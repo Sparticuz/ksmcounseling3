@@ -1,34 +1,33 @@
-import { Phone, Mail, MapPin } from "lucide-react";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
-import { Textarea } from "./ui/textarea";
-import { useState, type FormEvent } from "react";
-import { Field, FieldError, FieldLabel } from "./ui/field";
-import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
 const formSchema = z.object({
-  name: z.string().min(1, "Name is required"),
   email: z.email().min(1, "Email is required"),
-  phone: z.string().optional(),
   message: z.string().min(1, "Message is required"),
+  name: z.string().min(1, "Name is required"),
+  phone: z.string().optional(),
 });
 
 export const Contact = () => {
   const form = useForm({
     defaultValues: {
-      name: "",
       email: "",
-      phone: "",
       message: "",
+      name: "",
+      phone: "",
     },
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
     try {
       console.log("Form data:", data);
     } catch (error) {
@@ -58,17 +57,17 @@ export const Contact = () => {
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Phone className="text-persimmon-600 h-5 w-5" />
+                <Phone className="h-5 w-5 text-persimmon-600" />
                 <span className="text-gray-700">(555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="text-persimmon-600 h-5 w-5" />
+                <Mail className="h-5 w-5 text-persimmon-600" />
                 <span className="text-gray-700">
                   kristyn@fireflyplaytherapy.com
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="text-persimmon-600 h-5 w-5" />
+                <MapPin className="h-5 w-5 text-persimmon-600" />
                 <span className="text-gray-700">
                   Safety Harbor, Florida, serving North Pinellas county
                 </span>
@@ -77,7 +76,7 @@ export const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="p-6 bg-persimmon-400">
+          <Card className="bg-persimmon-400 p-6">
             <h3 className="mb-6 text-2xl font-semibold text-gray-900">
               Send a Message
             </h3>
@@ -90,9 +89,9 @@ export const Contact = () => {
                     <FieldLabel htmlFor={field.name}>Name *</FieldLabel>
                     <Input
                       {...field}
-                      id={field.name}
                       aria-invalid={fieldState.invalid}
                       autoComplete="off"
+                      id={field.name}
                     />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -108,9 +107,9 @@ export const Contact = () => {
                     <FieldLabel htmlFor={field.name}>Email</FieldLabel>
                     <Input
                       {...field}
-                      id={field.name}
                       aria-invalid={fieldState.invalid}
                       autoComplete="off"
+                      id={field.name}
                       type="email"
                     />
                     {fieldState.invalid && (
@@ -127,9 +126,9 @@ export const Contact = () => {
                     <FieldLabel htmlFor={field.name}>Phone</FieldLabel>
                     <Input
                       {...field}
-                      id={field.name}
                       aria-invalid={fieldState.invalid}
                       autoComplete="off"
+                      id={field.name}
                       placeholder="(555) 123-4567"
                       type="tel"
                     />
@@ -147,9 +146,9 @@ export const Contact = () => {
                     <FieldLabel htmlFor={field.name}>Message *</FieldLabel>
                     <Textarea
                       {...field}
-                      id={field.name}
                       aria-invalid={fieldState.invalid}
                       autoComplete="off"
+                      id={field.name}
                       placeholder="Tell me a bit about what brings you here and how I can help..."
                     />
                     {fieldState.invalid && (
@@ -160,7 +159,10 @@ export const Contact = () => {
               />
 
               <Button
-                className="bg-persimmon-400 hover:bg-persimmon-500 w-full text-white"
+                className={`
+                  w-full bg-persimmon-400 text-white
+                  hover:bg-persimmon-500
+                `}
                 disabled={
                   !form.formState.isDirty ||
                   form.formState.isSubmitting ||
@@ -172,18 +174,23 @@ export const Contact = () => {
               </Button>
 
               {form.formState.isSubmitSuccessful && (
-                <div className="rounded bg-green-50 p-2 text-center text-green-600">
+                <div
+                  className={`
+                    rounded bg-green-50 p-2 text-center text-green-600
+                  `}
+                >
                   Message sent successfully! I&apos;ll get back to you soon.
                 </div>
               )}
 
-              {form.formState.errors &&
-                Object.keys(form.formState.errors).length > 0 && (
-                  <div className="rounded bg-red-50 p-2 text-center text-red-600">
-                    There was an error sending your message. Please try again or
-                    contact me directly.
-                  </div>
-                )}
+              {Object.keys(form.formState.errors).length > 0 && (
+                <div
+                  className={`rounded bg-red-50 p-2 text-center text-red-600`}
+                >
+                  There was an error sending your message. Please try again or
+                  contact me directly.
+                </div>
+              )}
             </form>
           </Card>
         </div>

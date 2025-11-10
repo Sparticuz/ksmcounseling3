@@ -1,10 +1,10 @@
 import nextPlugin from "@next/eslint-plugin-next";
 import myConfig from "@sparticuz/eslint-config";
+import tailwindPlugin from "eslint-plugin-better-tailwindcss";
 import importPlugin from "eslint-plugin-import";
 import reactPlugin from "eslint-plugin-react";
 import reactCompilerPlugin from "eslint-plugin-react-compiler";
 import hooksPlugin from "eslint-plugin-react-hooks";
-import tailwindPlugin from "eslint-plugin-better-tailwindcss";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig(
@@ -18,8 +18,7 @@ export default defineConfig(
   {
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.json",
-        tsconfigRootDir: import.meta.dirname,
+        projectService: true,
       },
     },
     settings: {
@@ -35,7 +34,7 @@ export default defineConfig(
   reactPlugin.configs.flat["jsx-runtime"],
   nextPlugin.configs.recommended,
   nextPlugin.configs["core-web-vitals"],
-  hooksPlugin.configs["recommended-latest"],
+  hooksPlugin.configs.flat["recommended-latest"],
   reactCompilerPlugin.configs.recommended,
   {
     files: ["**/*.{jsx,tsx}"],

@@ -24,35 +24,40 @@ export const AboutMe = () => {
             </p>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <Star className="text-persimmon-500 h-5 w-5" />
+                <Star className="h-5 w-5 text-persimmon-500" />
                 <span className="text-gray-700">
                   Licensed Marraige and Family Therapist
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Star className="text-persimmon-500 h-5 w-5" />
+                <Star className="h-5 w-5 text-persimmon-500" />
                 <span className="text-gray-700">
                   Registered Play Therapist (RPT&trade;)
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Star className="text-persimmon-500 h-5 w-5" />
+                <Star className="h-5 w-5 text-persimmon-500" />
                 <span className="text-gray-700">
                   Certified Child-Centered Play Therapist
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Star className="text-persimmon-500 h-5 w-5" />
+                <Star className="h-5 w-5 text-persimmon-500" />
                 <span className="text-gray-700">10+ Years Experience</span>
               </div>
             </div>
           </div>
-          <div className="from-persimmon-100 to-persimmon-200 rounded-lg bg-gradient-to-br p-8 text-center">
+          <div
+            className={`
+              rounded-lg bg-gradient-to-br from-persimmon-100 to-persimmon-200
+              p-8 text-center
+            `}
+          >
             <Image
               alt="Krisytn McNally"
               className="mx-auto mb-4 h-48 w-48 rounded-full object-cover"
               height={256}
-              src="img/team/McNally-Resized.jpg"
+              src="/img/team/McNally-Resized.jpg"
               width={256}
             />
             <p className="text-gray-600 italic">

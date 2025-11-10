@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   Card,
@@ -7,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Link from "next/link";
 
 export const AboutPlayTherapy = () => {
   return (
@@ -24,9 +24,11 @@ export const AboutPlayTherapy = () => {
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-3">
-          <Card className="border-persimmon-200 transition-shadow hover:shadow-lg">
+          <Card
+            className={`border-persimmon-200 transition-shadow hover:shadow-lg`}
+          >
             <CardHeader className="text-center">
-              <CardTitle className="text-persimmon-700 text-2xl font-bold">
+              <CardTitle className="text-2xl font-bold text-persimmon-700">
                 Child-Centered Play Therapy
               </CardTitle>
             </CardHeader>
@@ -40,24 +42,26 @@ export const AboutPlayTherapy = () => {
               />
             </CardDescription>
             <CardContent>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                A child's most natural activity is to play. With Child-Centered
-                Play Therapy, children express their feelings, learn new skills,
-                grow, and heal. In the playroom, your child will build
-                confidence, responsibility, self-control, self-acceptance, and
-                coping skills. In Child-Centered Play Therapy, I do not direct
-                your child's play, so that your child is free to make choices
-                and explore. I build a safe and trusting relationship with your
-                child that encourages your child to process tough emotions, try
-                new behaviors, and discover their inner strengths all through
-                their play.
+              <p className="text-sm leading-relaxed text-gray-500">
+                A child&apos;s most natural activity is to play. With
+                Child-Centered Play Therapy, children express their feelings,
+                learn new skills, grow, and heal. In the playroom, your child
+                will build confidence, responsibility, self-control,
+                self-acceptance, and coping skills. In Child-Centered Play
+                Therapy, I do not direct your child&apos;s play, so that your
+                child is free to make choices and explore. I build a safe and
+                trusting relationship with your child that encourages your child
+                to process tough emotions, try new behaviors, and discover their
+                inner strengths all through their play.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-persimmon-200 transition-shadow hover:shadow-lg">
+          <Card
+            className={`border-persimmon-200 transition-shadow hover:shadow-lg`}
+          >
             <CardHeader className="text-center">
-              <CardTitle className="text-persimmon-700 text-2xl font-bold">
+              <CardTitle className="text-2xl font-bold text-persimmon-700">
                 Introducing Andrew
               </CardTitle>
             </CardHeader>
@@ -73,7 +77,7 @@ export const AboutPlayTherapy = () => {
               </div>
             </CardDescription>
             <CardContent>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm leading-relaxed text-gray-500">
                 This video is a fun reminder that kids are not miniature adults.
                 They are unique young people with a special way of relating to
                 their world. Children are constantly changing, learning, and
@@ -83,9 +87,11 @@ export const AboutPlayTherapy = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-persimmon-200 transition-shadow hover:shadow-lg">
+          <Card
+            className={`border-persimmon-200 transition-shadow hover:shadow-lg`}
+          >
             <CardHeader className="text-center">
-              <CardTitle className="text-persimmon-700 text-2xl font-bold">
+              <CardTitle className="text-2xl font-bold text-persimmon-700">
                 The Play Room
               </CardTitle>
             </CardHeader>
@@ -99,7 +105,7 @@ export const AboutPlayTherapy = () => {
               />
             </CardDescription>
             <CardContent>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm leading-relaxed text-gray-500">
                 The Playroom is intentionally designed to facilitate the
                 child&apos;s self direction within the safety of the therapeutic
                 relationship. A variety of toys have been selected to promote
@@ -108,9 +114,14 @@ export const AboutPlayTherapy = () => {
             </CardContent>
           </Card>
         </div>
-        <Card className="border-persimmon-200 mt-12 transition-shadow hover:shadow-lg">
+        <Card
+          className={`
+            mt-12 border-persimmon-200 transition-shadow
+            hover:shadow-lg
+          `}
+        >
           <CardHeader className="text-center">
-            <CardTitle className="text-persimmon-700 text-2xl font-bold">
+            <CardTitle className="text-2xl font-bold text-persimmon-700">
               Play Therapy Resources
             </CardTitle>
             <CardDescription className="mt-3">
@@ -122,45 +133,45 @@ export const AboutPlayTherapy = () => {
           </CardHeader>
           <CardContent className="grid gap-6 md:grid-cols-3">
             <Link
+              className="flex flex-col items-center text-center"
               href="https://www.a4pt.org/"
               target="_blank"
-              className="flex flex-col items-center text-center"
             >
               <Image
-                src={
-                  "img/logos/25626095_10155854180361420_6226599683189044503_o.png"
-                }
                 alt={"Association for Play Therapy"}
-                width={160}
                 height={90}
+                src={
+                  "/img/logos/25626095_10155854180361420_6226599683189044503_o.png"
+                }
+                width={160}
               />
-              <h3 className="text-persimmon-700 mb-2 font-semibold">
+              <h3 className="mb-2 font-semibold text-persimmon-700">
                 Association for Play Therapy
               </h3>
             </Link>
             <Link
+              className="flex flex-col items-center text-center"
               href="https://www.playtherapy.org/page/Podcast"
               target="_blank"
-              className="flex flex-col items-center text-center"
             >
-              <h3 className="text-persimmon-700 mb-2 font-semibold">
+              <h3 className="mb-2 font-semibold text-persimmon-700">
                 Old Play Therapy Parenting Podcast
               </h3>
               <p className="text-sm text-gray-500">What goes here</p>
             </Link>
             <Link
+              className="flex flex-col items-center text-center"
               href="https://childtherapy.org/"
               target="_blank"
-              className="flex flex-col items-center text-center"
             >
               <Image
-                src={"img/logos/unt.svg"}
                 alt={"University of North Texas' Center for Play Therapy"}
-                width={160}
                 height={90}
+                src={"/img/logos/unt.svg"}
+                width={160}
               />
-              <h3 className="text-persimmon-700 mb-2 font-semibold">
-                UNT's Center for Play Therapy
+              <h3 className="mb-2 font-semibold text-persimmon-700">
+                UNT&apos;s Center for Play Therapy
               </h3>
             </Link>
           </CardContent>
