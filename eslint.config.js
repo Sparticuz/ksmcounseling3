@@ -35,8 +35,10 @@ export default tseslint.config(
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat["jsx-runtime"],
   // ...tailwind.configs["flat/recommended"],
-  nextPlugin.configs.recommended,
-  nextPlugin.configs["core-web-vitals"],
+  // @ts-expect-error The types are busted
+  nextPlugin.flatConfig.recommended,
+  // @ts-expect-error The types are busted
+  nextPlugin.flatConfig.coreWebVitals,
   hooksPlugin.configs["recommended-latest"],
   reactCompilerPlugin.configs.recommended,
   {

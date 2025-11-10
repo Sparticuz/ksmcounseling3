@@ -1,17 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { Mail, MapPin, Menu, Phone, Star } from "lucide-react";
+import { Mail, MapPin, Menu, Phone } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react"; // Added useEffect
 
+import { AboutMe } from "@/components/about-me";
+import { AboutPlayTherapy } from "@/components/about-play-therapy";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -205,7 +201,14 @@ export default function Homepage() {
       <main className="-mt-48">
         {/* Hero Section */}
 
-        <section className="bg-[url(img/guilherme-stecanella-smCn7Cbhk_c-unsplash.jpg)] bg-cover bg-center bg-no-repeat py-64">
+        {/* Hero background: switched from Tailwind arbitrary value to inline style to avoid duplicate relative path generation (./img/...) causing build error */}
+        <section
+          className="bg-cover bg-center bg-no-repeat py-64"
+          style={{
+            backgroundImage:
+              "url(/img/guilherme-stecanella-smCn7Cbhk_c-unsplash.jpg)",
+          }}
+        >
           <div className="container mx-auto text-center">
             <blockquote className="mb-6 font-serif text-4xl font-bold italic text-shadow-black text-shadow-sm">
               “Toys are a child’s words and play is their language”
@@ -226,136 +229,10 @@ export default function Homepage() {
         </section>
 
         {/* About Me Section */}
-        <section className="bg-white px-4 py-20" id="about">
-          <div className="container mx-auto">
-            <div className="grid items-center gap-12 md:grid-cols-2">
-              <div>
-                <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
-                  About Me
-                </h2>
-                <p className="mb-4 text-gray-600">
-                  Hello! I&apos;m Sarah Johnson, a licensed play therapist with
-                  over 8 years of experience working with children and families.
-                  I believe that play is a child&apos;s natural language, and
-                  through play therapy, children can heal, grow, and thrive.
-                </p>
-                <p className="mb-6 text-gray-600">
-                  I hold a Master&apos;s degree in Counseling Psychology and am
-                  a Registered Play Therapist through the Association for Play
-                  Therapy. My approach is warm, child-centered, and tailored to
-                  each child&apos;s unique needs.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <Star className="text-persimmon-500 h-5 w-5" />
-                    <span className="text-gray-700">
-                      Licensed Professional Counselor
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Star className="text-persimmon-500 h-5 w-5" />
-                    <span className="text-gray-700">
-                      Registered Play Therapist (RPT)
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Star className="text-persimmon-500 h-5 w-5" />
-                    <span className="text-gray-700">8+ Years Experience</span>
-                  </div>
-                </div>
-              </div>
-              <div className="from-persimmon-100 to-persimmon-200 rounded-lg bg-gradient-to-br p-8 text-center">
-                <img
-                  alt="Krisytn McNally"
-                  className="mx-auto mb-4 h-48 w-48 rounded-full object-cover"
-                  src="img/team/McNally-Resized.jpg"
-                />
-                <p className="text-gray-600 italic">
-                  &quot;Every child deserves to be heard, understood, and
-                  supported on their journey.&quot;
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <AboutMe />
 
         {/* Play Therapy Section */}
-        <section className="px-4 py-20" id="play-therapy">
-          <div className="container mx-auto">
-            <div className="mb-12 text-center">
-              <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
-                Play Therapy Services
-              </h2>
-              <p className="mx-auto max-w-3xl text-xl text-gray-600">
-                Play therapy is a therapeutic approach that uses play to help
-                children communicate, explore feelings, and develop
-                problem-solving skills.
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3">
-              <Card className="border-persimmon-200 transition-shadow hover:shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-persimmon-700">
-                    Individual Play Therapy
-                  </CardTitle>
-                  <CardDescription>
-                    One-on-one sessions tailored to your child&apos;s specific
-                    needs and goals.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Anxiety and depression</li>
-                    <li>• Behavioral challenges</li>
-                    <li>• Trauma processing</li>
-                    <li>• Social skills development</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-persimmon-200 transition-shadow hover:shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-persimmon-700">
-                    Family Play Therapy
-                  </CardTitle>
-                  <CardDescription>
-                    Strengthening family bonds and improving communication
-                    through play.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Parent-child relationships</li>
-                    <li>• Family communication</li>
-                    <li>• Sibling conflicts</li>
-                    <li>• Attachment building</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-persimmon-200 transition-shadow hover:shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-persimmon-700">
-                    Group Play Therapy
-                  </CardTitle>
-                  <CardDescription>
-                    Small group sessions focusing on social skills and peer
-                    relationships.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Social skills training</li>
-                    <li>• Peer interaction</li>
-                    <li>• Emotional regulation</li>
-                    <li>• Confidence building</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
+        <AboutPlayTherapy />
 
         {/* Parent Corner Section */}
         <section className="bg-white px-4 py-20" id="parent-corner">

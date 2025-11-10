@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "augments": {
+      "url": "https://mcp.augments.dev/mcp",
+      "type": "http"
+    },
+    "next-devtools": {
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
+    }
+  }
+}
