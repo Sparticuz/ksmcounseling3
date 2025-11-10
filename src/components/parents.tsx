@@ -1,3 +1,5 @@
+import { Card } from "./ui/card";
+
 export const Parents = () => {
   return (
     <section className="bg-white px-4 py-20" id="parent-corner">

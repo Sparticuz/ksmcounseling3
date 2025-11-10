@@ -37,7 +37,13 @@ export const AboutMe = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Star className="text-persimmon-500 h-5 w-5" />
-                <span className="text-gray-700">8+ Years Experience</span>
+                <span className="text-gray-700">
+                  Certified Child-Centered Play Therapist
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Star className="text-persimmon-500 h-5 w-5" />
+                <span className="text-gray-700">10+ Years Experience</span>
               </div>
             </div>
           </div>
