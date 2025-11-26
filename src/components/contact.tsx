@@ -43,21 +43,10 @@ export const Contact = () => {
     <section className="px-4 py-20" id="contact">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2
-            className={`
-              mb-6 text-3xl font-bold text-gray-900
-              md:text-4xl
-              dark:text-foreground
-            `}
-          >
+          <h2 className={`mb-6 text-3xl font-bold text-gray-900 md:text-4xl`}>
             Get in Touch
           </h2>
-          <p
-            className={`
-              mx-auto max-w-2xl text-xl text-gray-600
-              dark:text-muted-foreground
-            `}
-          >
+          <p className={`mx-auto max-w-2xl text-xl text-gray-600`}>
             Ready to take the first step? I&apos;d love to hear from you and
             discuss how play therapy can support your child&apos;s growth and
             well-being.
@@ -67,23 +56,14 @@ export const Contact = () => {
         <div className="grid gap-12 md:grid-cols-2">
           {/* Contact Information */}
           <div>
-            <h3
-              className={`
-                mb-6 text-2xl font-semibold text-gray-900
-                dark:text-foreground
-              `}
-            >
+            <h3 className={`mb-6 text-2xl font-semibold text-gray-900`}>
               Contact Information
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-persimmon-600" />
                 <a
-                  className={`
-                    text-gray-700
-                    hover:text-persimmon-600
-                    dark:text-muted-foreground dark:hover:text-persimmon-400
-                  `}
+                  className={`text-gray-700 hover:text-persimmon-600`}
                   href="mailto:kristyn@fireflyplaytherapy.com"
                 >
                   kristyn@fireflyplaytherapy.com
@@ -91,21 +71,14 @@ export const Contact = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-persimmon-600" />
-                <span className="text-gray-700 dark:text-muted-foreground">
-                  Safety Harbor, Florida
-                </span>
+                <span className="text-gray-700">Safety Harbor, Florida</span>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-persimmon-50 p-6 dark:bg-persimmon-950">
-            <h3
-              className={`
-                mb-6 text-2xl font-semibold text-gray-900
-                dark:text-foreground
-              `}
-            >
+          <Card className="bg-persimmon-50 p-6">
+            <h3 className={`mb-6 text-2xl font-semibold text-gray-900`}>
               Send a Message
             </h3>
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
@@ -190,7 +163,6 @@ export const Contact = () => {
                 className={`
                   w-full bg-persimmon-600 text-white
                   hover:bg-persimmon-700
-                  dark:bg-persimmon-600 dark:hover:bg-persimmon-700
                 `}
                 disabled={
                   !form.formState.isDirty ||
@@ -206,7 +178,6 @@ export const Contact = () => {
                 <div
                   className={`
                     rounded bg-green-50 p-2 text-center text-green-600
-                    dark:bg-green-950 dark:text-green-400
                   `}
                 >
                   Message sent successfully! I&apos;ll get back to you soon.
@@ -215,10 +186,7 @@ export const Contact = () => {
 
               {Object.keys(form.formState.errors).length > 0 && (
                 <div
-                  className={`
-                    rounded bg-red-50 p-2 text-center text-red-600
-                    dark:bg-red-950 dark:text-red-400
-                  `}
+                  className={`rounded bg-red-50 p-2 text-center text-red-600`}
                 >
                   There was an error sending your message. Please try again or
                   contact me directly.

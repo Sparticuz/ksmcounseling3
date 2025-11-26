@@ -14,21 +14,10 @@ export const AboutPlayTherapy = () => {
     <section className="px-4 py-20" id="play-therapy">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2
-            className={`
-              mb-6 text-3xl font-bold text-gray-900
-              md:text-4xl
-              dark:text-foreground
-            `}
-          >
+          <h2 className={`mb-6 text-3xl font-bold text-gray-900 md:text-4xl`}>
             About Play Therapy
           </h2>
-          <p
-            className={`
-              mx-auto max-w-3xl text-xl text-gray-600
-              dark:text-muted-foreground
-            `}
-          >
+          <p className={`mx-auto max-w-3xl text-xl text-gray-600`}>
             Play therapy is a therapeutic approach that uses play to help
             children communicate, explore feelings, and develop problem-solving
             skills.

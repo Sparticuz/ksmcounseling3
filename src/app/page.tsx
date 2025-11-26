@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Menu } from "lucide-react";
@@ -60,7 +61,7 @@ export default function Homepage() {
   return (
     <div
       className={`
-        min-h-screen bg-gradient-to-b from-rose-50 to-orange-50 text-white
+        min-h-screen bg-linear-to-b from-rose-50 to-orange-50 text-white
       `}
     >
       {/* Navigation */}
@@ -73,7 +74,7 @@ export default function Homepage() {
           isScrolled
             ? `
               h-24 bg-persimmon-400 backdrop-blur
-              supports-[backdrop-filter]:bg-persimmon-400/60
+              supports-backdrop-filter:bg-persimmon-400/60
             ` // Pinned state: with background, blur
             : "h-48 border-transparent bg-transparent", // Floating state: transparent background
         )}
@@ -121,8 +122,7 @@ export default function Homepage() {
 
             <SheetContent
               className={`
-                w-[85vw] max-w-sm bg-gradient-to-br from-persimmon-50
-                to-orange-50
+                w-[85vw] max-w-sm bg-linear-to-br from-persimmon-50 to-orange-50
               `}
               side="right"
             >
@@ -193,7 +193,7 @@ export default function Homepage() {
 
         {/* Hero background: switched from Tailwind arbitrary value to inline style to avoid duplicate relative path generation (./img/...) causing build error */}
         <section
-          className="bg-cover bg-center bg-no-repeat py-64 pt-[20rem]"
+          className="bg-cover bg-center bg-no-repeat py-64 pt-80"
           style={{
             backgroundImage:
               "url(/img/guilherme-stecanella-smCn7Cbhk_c-unsplash.jpg)",

@@ -8,24 +8,13 @@ import {
 
 export const Parents = () => {
   return (
-    <section className="bg-white px-4 py-20 dark:bg-card" id="parent-corner">
+    <section className="bg-white px-4 py-20" id="parent-corner">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2
-            className={`
-              mb-6 text-3xl font-bold text-gray-900
-              md:text-4xl
-              dark:text-foreground
-            `}
-          >
+          <h2 className={`mb-6 text-3xl font-bold text-gray-900 md:text-4xl`}>
             Parent Corner
           </h2>
-          <p
-            className={`
-              mx-auto max-w-3xl text-xl text-gray-600
-              dark:text-muted-foreground
-            `}
-          >
+          <p className={`mx-auto max-w-3xl text-xl text-gray-600`}>
             Resources and support for parents navigating their child&apos;s
             emotional and behavioral needs.
           </p>
@@ -120,12 +109,7 @@ export const Parents = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Card
-            className={`
-              bg-linear-to-r from-rose-50 to-orange-50
-              dark:from-persimmon-900 dark:to-persimmon-800
-            `}
-          >
+          <Card className={`bg-linear-to-r from-rose-50 to-orange-50`}>
             <CardHeader>
               <CardTitle>Parent Consultation Available</CardTitle>
               <CardDescription>
