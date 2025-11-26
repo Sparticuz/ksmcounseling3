@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "engines": {
-    "node": ">=22.6.0"
+    "node": "^24.0.0"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.940.0",
