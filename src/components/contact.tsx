@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, MapPin } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
@@ -53,31 +52,9 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2">
-          {/* Contact Information */}
-          <div>
-            <h3 className={`mb-6 text-2xl font-semibold text-gray-900`}>
-              Contact Information
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-persimmon-600" />
-                <a
-                  className={`text-gray-700 hover:text-persimmon-600`}
-                  href="mailto:kristyn@fireflyplaytherapy.com"
-                >
-                  kristyn@fireflyplaytherapy.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-persimmon-600" />
-                <span className="text-gray-700">Safety Harbor, Florida</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <Card className="bg-persimmon-50 p-6">
+        {/* Contact Form */}
+        <div className="flex justify-center">
+          <Card className="w-1/2 bg-persimmon-50 p-6">
             <h3 className={`mb-6 text-2xl font-semibold text-gray-900`}>
               Send a Message
             </h3>
