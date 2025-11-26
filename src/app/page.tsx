@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Menu } from "lucide-react";
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 import { AboutMe } from "@/components/about-me";
@@ -85,10 +85,12 @@ export default function Homepage() {
           `}
         >
           <div className="flex items-center space-x-2">
-            <img
+            <Image
               alt="Firefly Play Therapy Logo"
               className="h-full w-[200px]"
+              height={100}
               src="/img/logos/logo_clear_bg.svg"
+              width={200}
             />
           </div>
 
@@ -135,10 +137,12 @@ export default function Homepage() {
                       shadow-md
                     `}
                   >
-                    <img
+                    <Image
                       alt="Firefly Play Therapy Logo"
                       className="h-16 w-auto"
+                      height={64}
                       src="/img/logos/logo_clear_bg.svg"
+                      width={200}
                     />
                   </div>
                 </div>
@@ -247,10 +251,12 @@ export default function Homepage() {
         <footer className="bg-persimmon-600 px-4 py-8 text-white">
           <div className="container mx-auto text-center">
             <div className="mb-4 flex items-center justify-center space-x-2">
-              <img
+              <Image
                 alt="Firefly Play Therapy"
                 className="h-6 w-6"
+                height={24}
                 src="/apple-touch-icon.png"
+                width={24}
               />
               <span className="text-lg font-semibold">
                 Firefly Play Therapy
