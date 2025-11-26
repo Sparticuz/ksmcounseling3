@@ -14,10 +14,21 @@ export const AboutPlayTherapy = () => {
     <section className="px-4 py-20" id="play-therapy">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2
+            className={`
+              mb-6 text-3xl font-bold text-gray-900
+              md:text-4xl
+              dark:text-foreground
+            `}
+          >
             About Play Therapy
           </h2>
-          <p className="mx-auto max-w-3xl text-xl text-gray-600">
+          <p
+            className={`
+              mx-auto max-w-3xl text-xl text-gray-600
+              dark:text-muted-foreground
+            `}
+          >
             Play therapy is a therapeutic approach that uses play to help
             children communicate, explore feelings, and develop problem-solving
             skills.
@@ -131,10 +142,11 @@ export const AboutPlayTherapy = () => {
               </p>
             </CardDescription>
           </CardHeader>
-          <CardContent className="grid gap-6 md:grid-cols-3">
+          <CardContent className="grid gap-6 md:grid-cols-2">
             <Link
               className="flex flex-col items-center text-center"
               href="https://www.a4pt.org/"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <Image
@@ -151,17 +163,8 @@ export const AboutPlayTherapy = () => {
             </Link>
             <Link
               className="flex flex-col items-center text-center"
-              href="https://www.playtherapy.org/page/Podcast"
-              target="_blank"
-            >
-              <h3 className="mb-2 font-semibold text-persimmon-700">
-                Old Play Therapy Parenting Podcast
-              </h3>
-              <p className="text-sm text-gray-500">What goes here</p>
-            </Link>
-            <Link
-              className="flex flex-col items-center text-center"
-              href="https://childtherapy.org/"
+              href="https://cpt.unt.edu/what-is-play-therapy"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <Image

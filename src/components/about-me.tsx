@@ -3,20 +3,26 @@ import Image from "next/image";
 
 export const AboutMe = () => {
   return (
-    <section className="bg-white px-4 py-20" id="about">
+    <section className="bg-white px-4 py-20 dark:bg-card" id="about">
       <div className="container mx-auto">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2
+              className={`
+                mb-6 text-3xl font-bold text-gray-900
+                md:text-4xl
+                dark:text-foreground
+              `}
+            >
               About Me
             </h2>
-            <p className="mb-4 text-gray-600">
+            <p className="mb-4 text-gray-600 dark:text-muted-foreground">
               Hi, I&apos;m Kristyn McNally. I&apos;m dedicated to helping your
               child thrive through play therapy. We all face challenges in life.
               I&apos;m here to help your child overcome those challenges and
               achieve their goals.
             </p>
-            <p className="mb-6 text-gray-600">
+            <p className="mb-6 text-gray-600 dark:text-muted-foreground">
               I hold a Master&apos;s degree in Marriage and Family Therapy and
               am a Registered Play Therapist through the Association for Play
               Therapy. My approach is warm, child-centered, and tailored to each
@@ -25,25 +31,33 @@ export const AboutMe = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <Star className="h-5 w-5 text-persimmon-500" />
-                <span className="text-gray-700">
-                  Licensed Marraige and Family Therapist
+                <span className="text-gray-700 dark:text-muted-foreground">
+                  Licensed Mental Health Counselor (LMHC)
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Star className="h-5 w-5 text-persimmon-500" />
-                <span className="text-gray-700">
+                <span className="text-gray-700 dark:text-muted-foreground">
+                  Licensed Marriage and Family Therapist (LMFT)
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Star className="h-5 w-5 text-persimmon-500" />
+                <span className="text-gray-700 dark:text-muted-foreground">
                   Registered Play Therapist (RPT&trade;)
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Star className="h-5 w-5 text-persimmon-500" />
-                <span className="text-gray-700">
+                <span className="text-gray-700 dark:text-muted-foreground">
                   Certified Child-Centered Play Therapist
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Star className="h-5 w-5 text-persimmon-500" />
-                <span className="text-gray-700">10+ Years Experience</span>
+                <span className="text-gray-700 dark:text-muted-foreground">
+                  10+ Years Experience
+                </span>
               </div>
             </div>
           </div>
@@ -51,6 +65,7 @@ export const AboutMe = () => {
             className={`
               rounded-lg bg-gradient-to-br from-persimmon-100 to-persimmon-200
               p-8 text-center
+              dark:from-persimmon-900 dark:to-persimmon-800
             `}
           >
             <Image
@@ -60,7 +75,7 @@ export const AboutMe = () => {
               src="/img/team/McNally-Resized.jpg"
               width={256}
             />
-            <p className="text-gray-600 italic">
+            <p className="text-gray-600 italic dark:text-muted-foreground">
               &quot;Every child deserves to be heard, understood, and supported
               on their journey.&quot;
             </p>

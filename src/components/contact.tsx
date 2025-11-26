@@ -1,37 +1,41 @@
+"use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
-import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
-const formSchema = z.object({
-  email: z.email().min(1, "Email is required"),
-  message: z.string().min(1, "Message is required"),
-  name: z.string().min(1, "Name is required"),
-  phone: z.string().optional(),
-});
+import { contactFormSchema, type ContactFormData } from "@/lib/contact-schema";
+import { sendContactEmail } from "@/lib/form";
 
 export const Contact = () => {
-  const form = useForm({
+  const form = useForm<ContactFormData>({
     defaultValues: {
       email: "",
       message: "",
       name: "",
       phone: "",
     },
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
+  const onSubmit = async (data: ContactFormData) => {
     try {
-      console.log("Form data:", data);
+      const result = await sendContactEmail(data);
+
+      if (!result.success) {
+        throw new Error(result.error ?? "Failed to send message");
+      }
+
+      // Reset form on success
+      form.reset();
     } catch (error) {
       console.error("Form submission error:", error);
+      throw error;
     }
   };
 
@@ -39,10 +43,21 @@ export const Contact = () => {
     <section className="px-4 py-20" id="contact">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2
+            className={`
+              mb-6 text-3xl font-bold text-gray-900
+              md:text-4xl
+              dark:text-foreground
+            `}
+          >
             Get in Touch
           </h2>
-          <p className="mx-auto max-w-2xl text-xl text-gray-600">
+          <p
+            className={`
+              mx-auto max-w-2xl text-xl text-gray-600
+              dark:text-muted-foreground
+            `}
+          >
             Ready to take the first step? I&apos;d love to hear from you and
             discuss how play therapy can support your child&apos;s growth and
             well-being.
@@ -52,32 +67,45 @@ export const Contact = () => {
         <div className="grid gap-12 md:grid-cols-2">
           {/* Contact Information */}
           <div>
-            <h3 className="mb-6 text-2xl font-semibold text-gray-900">
+            <h3
+              className={`
+                mb-6 text-2xl font-semibold text-gray-900
+                dark:text-foreground
+              `}
+            >
               Contact Information
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-persimmon-600" />
-                <span className="text-gray-700">(555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-persimmon-600" />
-                <span className="text-gray-700">
+                <a
+                  className={`
+                    text-gray-700
+                    hover:text-persimmon-600
+                    dark:text-muted-foreground dark:hover:text-persimmon-400
+                  `}
+                  href="mailto:kristyn@fireflyplaytherapy.com"
+                >
                   kristyn@fireflyplaytherapy.com
-                </span>
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-persimmon-600" />
-                <span className="text-gray-700">
-                  Safety Harbor, Florida, serving North Pinellas county
+                <span className="text-gray-700 dark:text-muted-foreground">
+                  Safety Harbor, Florida
                 </span>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-persimmon-400 p-6">
-            <h3 className="mb-6 text-2xl font-semibold text-gray-900">
+          <Card className="bg-persimmon-50 p-6 dark:bg-persimmon-950">
+            <h3
+              className={`
+                mb-6 text-2xl font-semibold text-gray-900
+                dark:text-foreground
+              `}
+            >
               Send a Message
             </h3>
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
@@ -86,7 +114,7 @@ export const Contact = () => {
                 name="name"
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor={field.name}>Name *</FieldLabel>
+                    <FieldLabel htmlFor={field.name}>Name</FieldLabel>
                     <Input
                       {...field}
                       aria-invalid={fieldState.invalid}
@@ -143,7 +171,7 @@ export const Contact = () => {
                 name="message"
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor={field.name}>Message *</FieldLabel>
+                    <FieldLabel htmlFor={field.name}>Message</FieldLabel>
                     <Textarea
                       {...field}
                       aria-invalid={fieldState.invalid}
@@ -160,8 +188,9 @@ export const Contact = () => {
 
               <Button
                 className={`
-                  w-full bg-persimmon-400 text-white
-                  hover:bg-persimmon-500
+                  w-full bg-persimmon-600 text-white
+                  hover:bg-persimmon-700
+                  dark:bg-persimmon-600 dark:hover:bg-persimmon-700
                 `}
                 disabled={
                   !form.formState.isDirty ||
@@ -177,6 +206,7 @@ export const Contact = () => {
                 <div
                   className={`
                     rounded bg-green-50 p-2 text-center text-green-600
+                    dark:bg-green-950 dark:text-green-400
                   `}
                 >
                   Message sent successfully! I&apos;ll get back to you soon.
@@ -185,7 +215,10 @@ export const Contact = () => {
 
               {Object.keys(form.formState.errors).length > 0 && (
                 <div
-                  className={`rounded bg-red-50 p-2 text-center text-red-600`}
+                  className={`
+                    rounded bg-red-50 p-2 text-center text-red-600
+                    dark:bg-red-950 dark:text-red-400
+                  `}
                 >
                   There was an error sending your message. Please try again or
                   contact me directly.
